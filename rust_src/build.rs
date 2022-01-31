@@ -1,6 +1,6 @@
 fn main() {
     cc::Build::new()
-        .file("mul.c")
+        .file("mul.cpp")
         .flag("-flto=thin")
         .compile("libmul.a");
 }

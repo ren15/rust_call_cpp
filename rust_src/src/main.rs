@@ -1,5 +1,5 @@
-#[link(name="mul", kind="static")]
-extern {
+#[link(name = "mul", kind = "static")]
+extern "C" {
     fn mul(a: u32, b: u32) -> u32;
 }
 
@@ -10,6 +10,6 @@ fn multiply(a: u32, b: u32) -> u32 {
 }
 
 fn main() {
-    println!("42*42 = {}!", multiply(42,42));
-    println!("87*31 = {}!", multiply(87,31));
+    println!("2*3 = {}!", multiply(2, 3));
+    println!("1*1= {}!", multiply(1, 1));
 }
