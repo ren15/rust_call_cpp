@@ -5,6 +5,7 @@ apt install -y \
     curl \
     gcc g++ \
     cmake \
+    ninja-build \
     make
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 export PATH="$HOME/.cargo/bin:$PATH"

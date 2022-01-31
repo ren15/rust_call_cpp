@@ -16,6 +16,7 @@ jobs:
       - name: Sys Info
         run: |
           bash ci/deb_install.sh
+          bash ci/setup_gbench.sh
 
       - name: Compile Rust
         run: |
