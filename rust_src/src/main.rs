@@ -14,6 +14,9 @@ fn multiply(a: u32, b: u32) -> u32 {
     unsafe { mul(a, b, 1) }
 }
 
+// In cpp code, add(a,b) = {return a+2*b}
+// If the compiler is smart enough, it will use LTO to
+// eliminate the additon
 #[inline(never)]
 #[no_mangle]
 fn add_rust(a: u32, b: u32) -> u32 {
