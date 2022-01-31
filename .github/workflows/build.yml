@@ -26,3 +26,10 @@ jobs:
       - name: objdump
         run: |
           make objdump
+
+      - name: cxx
+        run: |
+          make cxx_configure
+          make cxx_build
+          make cxx_run
+          make cxx_bench

@@ -26,7 +26,7 @@ objdump:
 cxx_configure:
 	mkdir -p ${CXX_BUILD_DIR}
 	rm -rf ${CXX_BUILD_DIR}/*
-	CC=${CC} CXX=${CXX} cmake -S ${CXX_SOURCE_DIR} -B ${CXX_BUILD_DIR} \
+	CC=gcc CXX=g++ cmake -S ${CXX_SOURCE_DIR} -B ${CXX_BUILD_DIR} \
 		-DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
 		-DCMAKE_BUILD_TYPE=Release \
 		-G Ninja
@@ -34,5 +34,9 @@ cxx_configure:
 		${CXX_SOURCE_DIR}/compile_commands.json
 cxx_build:
 	cmake --build ${CXX_BUILD_DIR} -j
+
 cxx_run:
 	${CXX_BUILD_DIR}/bin/test
+
+cxx_bench:
+	${CXX_BUILD_DIR}/bin/bench
