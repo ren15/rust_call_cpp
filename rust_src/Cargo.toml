@@ -6,6 +6,11 @@ edition = "2018"
 
 [build-dependencies]
 cc = "1.0"
+criterion = "0.3.5"
+
+[dependencies]
+criterion = "0.3.5"
+
 
 [profile.release]
 lto = false

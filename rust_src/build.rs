@@ -1,7 +1,8 @@
 fn main() {
     cc::Build::new()
-        .file("mul.cpp")
+        .cpp(true)
+        .file("math_c.cpp")
         .flag("-flto=thin")
         .flag("-std=c++20")
-        .compile("libmul.a");
+        .compile("libmath_c.a");
 }
