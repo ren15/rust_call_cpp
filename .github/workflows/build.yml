@@ -27,4 +27,4 @@ jobs:
 
       - name: objdump
         run: |
-          objdump -d ./target/release/xlanglto | grep "<multiply>:" -A3 -P3
+          objdump -d ./rust_src/target/release/xlanglto | grep "<multiply>:" -A3 -P3
