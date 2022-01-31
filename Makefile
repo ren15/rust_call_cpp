@@ -1,8 +1,12 @@
 .PHONY: $(MAKECMDGOALS)
 
 CC=clang-13
-RUSTFLAGS="-Clinker-plugin-lto -Clinker=clang-13 -Clink-arg=-fuse-ld=lld-13"
+LLD=lld-13
+RUSTFLAGS="-Clinker-plugin-lto -Clinker=${CC} -Clink-arg=-fuse-ld=${LLD}"
 
 build:
-	CC=${CC} RUSTFLAGS=${RUSTFLAGS} \
+	cd rust_src && CC=${CC} RUSTFLAGS=${RUSTFLAGS} \
 		cargo +nightly build --release
+
+objdump:
+	objdump -d ./rust_src/target/release/xlanglto | grep "<multiply>:" -A3
