@@ -23,8 +23,9 @@ jobs:
       - name: Compile Rust
         run: |
           PATH="$HOME/.cargo/bin:$PATH"
-          cd rust_src && CC=clang-13 RUSTFLAGS="-Clinker-plugin-lto -Clinker=clang-13 -Clink-arg=-fuse-ld=lld-13" cargo build --release
+          make build
+          make run
 
       - name: objdump
         run: |
-          objdump -d ./rust_src/target/release/xlanglto | grep "<multiply>:" -A3 -P3
+          make objdump
