@@ -15,10 +15,7 @@ jobs:
 
       - name: Sys Info
         run: |
-          apt update -y && apt upgrade -y
-          apt install -y clang-13 lld-13 curl
-          curl https://sh.rustup.rs -sSf | sh -s -- -y
-          PATH="$HOME/.cargo/bin:$PATH"
+          bash ci/deb_install.sh
 
       - name: Compile Rust
         run: |
