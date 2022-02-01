@@ -24,7 +24,7 @@ uint32_t get_prime_c(uint32_t a)
 
 uint32_t get_prime_c_opt(uint32_t a)
 {
-    return get_prime_cnt_cpp(a);
+    return get_prime_cnt_cpp_opt(a);
 }
 uint32_t get_prime_c_1001(uint32_t a)
 {
