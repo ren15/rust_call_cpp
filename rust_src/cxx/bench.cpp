@@ -10,19 +10,20 @@ uint64_t get_num()
     return num;
 }
 
-static void BM_get_prime_cnt_cpp(benchmark::State& state)
+static void BM_get_prime_cpp(benchmark::State& state)
 {
     for (auto _ : state) {
         auto a = get_prime_cnt_cpp(1001UL);
         benchmark::DoNotOptimize(a);
     }
 }
-BENCHMARK(BM_get_prime_cnt_cpp);
+BENCHMARK(BM_get_prime_cpp);
 
 static void BM_get_prime_c(benchmark::State& state)
 {
+    auto num = static_cast<uint32_t>(state.range(0));
     for (auto _ : state) {
-        auto a = get_prime_c(state.range(0));
+        auto a = get_prime_c(num);
         benchmark::DoNotOptimize(a);
     }
 }
@@ -30,8 +31,9 @@ BENCHMARK(BM_get_prime_c)->RangeMultiplier(4)->Range(64, 1 << 12);
 
 static void BM_get_prime_c_opt(benchmark::State& state)
 {
+    auto num = static_cast<uint32_t>(state.range(0));
     for (auto _ : state) {
-        auto a = get_prime_c_opt(state.range(0));
+        auto a = get_prime_c_opt(num);
         benchmark::DoNotOptimize(a);
     }
 }
