@@ -22,11 +22,11 @@ BENCHMARK(BM_get_prime_cnt_cpp);
 static void BM_get_prime_c(benchmark::State& state)
 {
     for (auto _ : state) {
-        auto a = get_prime_c(1001UL);
+        auto a = get_prime_c(state.range(0));
         benchmark::DoNotOptimize(a);
     }
 }
-BENCHMARK(BM_get_prime_c);
+BENCHMARK(BM_get_prime_c)->RangeMultiplier(4)->Range(64, 1 << 12);
 
 static void BM_get_prime_c_opt(benchmark::State& state)
 {
@@ -35,7 +35,7 @@ static void BM_get_prime_c_opt(benchmark::State& state)
         benchmark::DoNotOptimize(a);
     }
 }
-BENCHMARK(BM_get_prime_c_opt)->RangeMultiplier(2)->Range(64, 1 << 12);;
+BENCHMARK(BM_get_prime_c_opt)->RangeMultiplier(4)->Range(64, 1 << 12);
 
 static void BM_get_prime_c_1001(benchmark::State& state)
 {
