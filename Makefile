@@ -26,7 +26,7 @@ objdump:
 cxx_configure:
 	mkdir -p ${CXX_BUILD_DIR}
 	rm -rf ${CXX_BUILD_DIR}/*
-	CC=gcc CXX=g++ cmake -S ${CXX_SOURCE_DIR} -B ${CXX_BUILD_DIR} \
+	CC=gcc-11 CXX=g++-11 cmake -S ${CXX_SOURCE_DIR} -B ${CXX_BUILD_DIR} \
 		-DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
 		-DCMAKE_BUILD_TYPE=Release \
 		-G Ninja
